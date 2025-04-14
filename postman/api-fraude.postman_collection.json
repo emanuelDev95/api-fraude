@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "7afc80ff-813d-48cd-8fbf-c39fac904b3b",
+		"name": "api-fraude",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10195387",
+		"_collection_link": "https://winter-comet-989521.postman.co/workspace/escuela~be82dec0-93eb-4977-9c5b-de76b0e67bd2/collection/10195387-7afc80ff-813d-48cd-8fbf-c39fac904b3b?action=share&source=collection_link&creator=10195387"
+	},
+	"item": [
+		{
+			"name": "reto",
+			"item": [
+				{
+					"name": "ip-info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ip-info/161.185.160.93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ip-info",
+								"161.185.160.93"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "apis-info",
+			"item": [
+				{
+					"name": "api-ip",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.ipapi.com/api/83.44.196.93?access_key=65e73e782d4bdc6167cedb6460e3ea31",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ipapi",
+								"com"
+							],
+							"path": [
+								"api",
+								"83.44.196.93"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "65e73e782d4bdc6167cedb6460e3ea31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "country-api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.countrylayer.com/v2/alpha/COL?access_key=0eb0ae48fa64951d408d9ec038e50587",
+							"protocol": "https",
+							"host": [
+								"api",
+								"countrylayer",
+								"com"
+							],
+							"path": [
+								"v2",
+								"alpha",
+								"COL"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "0eb0ae48fa64951d408d9ec038e50587"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currency-api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.exchangeratesapi.io/v1/latest?access_key=6e5d38e61e62c7949bbbedc98f898652&symbols=COPo",
+							"protocol": "https",
+							"host": [
+								"api",
+								"exchangeratesapi",
+								"io"
+							],
+							"path": [
+								"v1",
+								"latest"
+							],
+							"query": [
+								{
+									"key": "access_key",
+									"value": "6e5d38e61e62c7949bbbedc98f898652"
+								},
+								{
+									"key": "symbols",
+									"value": "COPo"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

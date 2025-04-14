@@ -118,6 +118,22 @@ GET /stats
 
    La API estará disponible en `http://localhost:8080`.
 
+## Colección de Postman
+   
+   Para facilitar las pruebas y el uso de la API, se ha proporcionado una **Colección de Postman**. Puedes importar la colección a Postman para probar los endpoints directamente desde la interfaz de Postman.
+   
+   ### Importación de la Colección
+   
+   1. **Descarga** el archivo de la colección de Postman desde [../postman/api-fraude.postman_collection.json](enlace-al-archivo-postman).
+   2. **Abre** Postman y haz clic en el botón "Importar".
+   3. Selecciona el archivo descargado o pega el enlace de la colección.
+   4. Haz clic en "Importar" y la colección estará disponible en tu espacio de trabajo de Postman.
+   
+   ### Endpoints disponibles en la Colección de Postman
+   
+   - **GET /ip-info**: Consulta la información correspondiente a una IP.
+   - **GET /stats**: Obtiene las estadísticas de uso de la API.
+
 
 
 
