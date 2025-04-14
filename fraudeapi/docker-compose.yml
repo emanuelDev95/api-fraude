@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - fraude-net
+
+  fraude-api:
+    build:
+      context: .  
+    container_name: fraude-api
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+    environment:
+      PROFILE: prod
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/fraude-db
+      IP_API_KEY: 65e73e782d4bdc6167cedb6460e3ea31
+      COUNTRY_LAYER_KEY: 0eb0ae48fa64951d408d9ec038e50587
+      EXCHANGE_RATES_KEY: 6e5d38e61e62c7949bbbedc98f898652
+    networks:
+      - fraude-net
+
+volumes:
+  mongodb_data:
+
+networks:
+  fraude-net:
+    driver: bridge

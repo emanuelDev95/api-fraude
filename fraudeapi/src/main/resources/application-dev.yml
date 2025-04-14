@@ -1,0 +1,19 @@
+spring:
+  data:
+    mongodb:
+      uri:  mongodb://localhost:27017/fraude-db
+api:
+  ip-api:
+    key: ${IP_API_KEY:65e73e782d4bdc6167cedb6460e3ea31}
+    url: https://api.ipapi.com
+  country-layer:
+    key: ${COUNTRY_LAYER_KEY:0eb0ae48fa64951d408d9ec038e50587}
+    url: https://api.countrylayer.com/v2
+  exchange-rates:
+    key: ${EXCHANGE_RATES_KEY:6e5d38e61e62c7949bbbedc98f898652}
+    url: https://api.exchangeratesapi.io/v1
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.reactive.function.client: DEBUG

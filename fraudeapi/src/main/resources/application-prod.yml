@@ -1,0 +1,15 @@
+spring:
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI}
+
+api:
+  ip-api:
+    key: ${IP_API_KEY}
+    url: https://api.ipapi.com
+  country-layer:
+    key: ${COUNTRY_LAYER_KEY}
+    url: https://api.countrylayer.com/v2
+  exchange-rates:
+    key: ${EXCHANGE_RATES_KEY}
+    url: https://api.exchangeratesapi.io/v1
