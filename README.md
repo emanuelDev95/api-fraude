@@ -124,7 +124,7 @@ GET /stats
    
    ### Importación de la Colección
    
-   1. **Descarga** el archivo de la colección de Postman desde [../postman/api-fraude.postman_collection.json](enlace-al-archivo-postman).
+   1. **Descarga** el archivo de la colección de Postman desde la carpeta postman
    2. **Abre** Postman y haz clic en el botón "Importar".
    3. Selecciona el archivo descargado o pega el enlace de la colección.
    4. Haz clic en "Importar" y la colección estará disponible en tu espacio de trabajo de Postman.
@@ -146,6 +146,11 @@ Para ejecutar las pruebas:
 ```bash
 mvn test
 ```
+## Pruebas unitarias
+
+Se realizaron pruebas unitarias alcanzando un 89% de cobertura del codigo.
+
+![alt text](/imgs/coverage.png)
 
 ## Estructura de la Base de Datos
 
