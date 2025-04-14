@@ -103,7 +103,8 @@ GET /stats
 
    ```bash
    git clone https://github.com/emanuelDev95/api-fraude.git
-   cd api-fraude/fraudeapi
+   
+   cd .\api-fraude\fraudeapi\
    ```
 
 2. ejecuta el proyecto utilizando **Docker compose**:
