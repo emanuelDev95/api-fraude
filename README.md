@@ -149,7 +149,7 @@ mvn test
 ```
 ## Pruebas unitarias
 
-Se realizaron pruebas unitarias alcanzando un 89% de cobertura del codigo.
+Se realizaron pruebas unitarias alcanzando un 95 de cobertura del codigo.
 
 ![alt text](/imgs/coverage.png)
 
