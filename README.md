@@ -1,33 +1,146 @@
-# api-fraude
 
+# API REST - Mercado Libre Challenge
 
-# API de Información Geográfica - Prueba Técnica
+Esta API REST, construida con **Java 21**, **Spring WebFlux**, y **MongoDB**, permite obtener información geográfica, de idioma, hora, distancia y moneda de un país dado a partir de una IP. Además, proporciona estadísticas de uso de las consultas realizadas.
 
-## Descripción
+## Tecnologías utilizadas
 
-Esta es una API que, dada una dirección IP, obtiene información geográfica sobre el país correspondiente. La información incluye:
-- Nombre del país
-- Código ISO
-- Idiomas oficiales
-- Hora actual (según la zona horaria)
-- Distancia a Buenos Aires
-- Moneda local y su cotización en dólares
-
-### Estadísticas
-También permite consultar estadísticas agregadas de uso del servicio:
-- Distancia más cercana a Buenos Aires desde la cual se ha consultado el servicio.
-- Distancia más lejana.
-- Distancia promedio ponderada por las invocaciones.
+- **Java 21**
+- **Spring Boot 3.x**
+- **Spring WebFlux** (programación reactiva)
+- **MongoDB** (base de datos NoSQL)
+- **Lombok** (para simplificar la creación de clases)
+- **JUnit 5** (para pruebas unitarias)
+- **Spring Data MongoDB** (para interactuar con MongoDB)
 
 ## Endpoints
 
-### `GET /ip-info/{ip}`
+### 1. **GET /ip-info**
 
-**Descripción:** Obtiene información sobre el país correspondiente a la IP proporcionada.
+#### Descripción
+Este endpoint recibe una dirección IP y devuelve la información correspondiente.
 
-**Parámetros:**
-- `ip` (string): Dirección IP.
+#### Parámetros
 
-**Ejemplo de solicitud:**
+| Parámetro | Tipo    | Descripción                               |
+|-----------|---------|-------------------------------------------|
+| `ip`      | String  | Dirección IP de origen para la consulta. |
+
+#### Ejemplo de solicitud
+
+```
+GET /ip-info/8.8.8.8
+```
+
+#### Ejemplo de respuesta
+
+```json
+{
+    "ip": "161.185.160.93",
+    "date": "14/04/2025 02:54:47",
+    "country": "United States",
+    "isoCode": "US",
+    "languages": [
+        "English"
+    ],
+    "currency": null,
+    "conversionRate": null,
+    "distanceToBuenosAires": 8530.37426684548
+}
+```
+
+#### Códigos de respuesta
+
+| Código | Descripción                           |
+|--------|---------------------------------------|
+| 200    | La solicitud fue exitosa.             |    |
+| 404    | No se pudo determinar el país.       |
+| 500    | Error en el servidor.                 |
+
+---
+
+### 2. **GET stats**
+
+#### Descripción
+Este endpoint devuelve estadísticas  
+* Distancia más lejana a Buenos Aires desde la cual se haya consultado el servicio 
+* Distancia más cercana a Buenos Aires desde la cual se haya consultado el servicio 
+ * Distancia promedio de todas las ejecuciones que se hayan hecho del servicio. 
+
+#### Ejemplo de solicitud
+
+```
+GET /stats
+```
+
+#### Ejemplo de respuesta
+
+```json
+{
+    "closestCountry": "Colombia",
+    "farthestCountry": "Spain",
+    "averageDistance": 8546.097317992871
+}
+```
+
+#### Códigos de respuesta
+
+| Código | Descripción                           |
+|--------|---------------------------------------|
+| 200    | La solicitud fue exitosa.             |
+| 500    | Error en el servidor.                 |
+
+## Configuración del Proyecto
+
+### Prerequisitos
+
+- **Java 21** o superior.
+- **MongoDB** en funcionamiento. Si no tienes MongoDB instalado localmente, puedes usar Docker para ejecutar una instancia.
+
+### Instalación
+
+1. Clona este repositorio:
+
+   ```bash
+   git clone https://github.com/emanuelDev95/api-fraude.git
+   cd api-fraude/fraudeapi
+   ```
+
+2. ejecuta el proyecto utilizando **Docker compose**:
+
+   ```bash
+   docker-compose up --build
+
+   ```
+
+
+   ```
+
+   La API estará disponible en `http://localhost:8080`.
+
+
+
+
+## Pruebas
+
+Las pruebas unitarias están implementadas usando **JUnit 5** y **Mockito**.
+
+Para ejecutar las pruebas:
+
 ```bash
-curl -X GET http://localhost:8080/ip-info/83.44.196.93
+mvn test
+```
+
+## Estructura de la Base de Datos
+
+La API utiliza **MongoDB** como base de datos NoSQL. Los datos, como las estadísticas de uso, se almacenan en colecciones de MongoDB.
+
+## Consideraciones
+
+- La API es reactiva, utilizando **Spring WebFlux** para manejar solicitudes de manera no bloqueante.
+- La base de datos **MongoDB** se usa para almacenar estadísticas de uso, como el número de consultas realizadas y las IPs únicas.
+- La API no realiza migraciones de base de datos, ya que MongoDB no requiere este tipo de configuración.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
