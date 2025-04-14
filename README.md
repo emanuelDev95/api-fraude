@@ -156,6 +156,17 @@ Se realizaron pruebas unitarias alcanzando un 89% de cobertura del codigo.
 
 La API utiliza **MongoDB** como base de datos NoSQL. Los datos, como las estadísticas de uso, se almacenan en colecciones de MongoDB.
 
+## Diagramas
+
+1. Diagrama de flujos para la consulta de la ip:
+
+![alt text](/imgs/diagrama-flujo-ip.png)
+
+
+2. Diagrama de flujos para la consulta de la ip:
+
+![alt text](/imgs/diagrama-flujo-stats.png)
+
 ## Consideraciones
 
 - La API es reactiva, utilizando **Spring WebFlux** para manejar solicitudes de manera no bloqueante.
